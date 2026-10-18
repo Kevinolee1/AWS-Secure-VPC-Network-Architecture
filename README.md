@@ -66,3 +66,68 @@ I verified that the internet gateway entered the **Attached** state and was asso
 The internet gateway provides a path for internet connectivity when resources are configured with appropriate route tables, IP addressing, and security controls.
 
 This prepares the VPC for public subnet connectivity while allowing private subnets to remain isolated from direct internet access.
+
+
+## Step 6 – Create a Public Route Table
+
+![AWS Public Route Table](images/06-create-public-route-table.png)
+
+**Figure 6 – Public Route Table Creation:** I created a custom route table named `CloudSecurity-Public-RT` within my `CloudSecurity-VPC`.
+
+I verified that AWS automatically added the `10.0.0.0/16 → local` route, allowing internal routing between resources within the VPC's address range.
+
+I also confirmed that this was not the VPC's main route table and that no subnets were explicitly associated with it yet.
+
+This establishes the foundation for configuring controlled internet routing for the public subnet while maintaining separate routing for private resources.
+
+
+## Step 7 – Configure Public Internet Routing
+
+![AWS Public Internet Route Configuration](images/07-configure-public-internet-route.png)
+
+**Figure 7 – Public Route Table Internet Gateway Configuration:** I configured the `CloudSecurity-Public-RT` route table to direct outbound IPv4 traffic toward the `CloudSecurity-IGW` internet gateway.
+
+I added the default route `0.0.0.0/0` with the internet gateway as its target while retaining the existing `10.0.0.0/16 → local` route for internal VPC communication.
+
+I verified that both routes displayed an **Active** status.
+
+This establishes the routing configuration required for the public subnet to support internet connectivity once the subnet is explicitly associated with this route table.
+
+
+## Step 8 – Associate the Public Subnet with Its Route Table
+
+![Public Subnet Route Table Association](images/08-associate-public-subnet-route-table.png)
+
+**Figure 8 – Public Subnet Route Table Association:** I explicitly associated `CloudSecurity-Public-Subnet` with the custom `CloudSecurity-Public-RT` route table.
+
+I verified that the route table contained two active routes: `10.0.0.0/16 → local` for internal VPC communication and `0.0.0.0/0 → Internet Gateway` for internet-bound IPv4 traffic.
+
+I confirmed that only the public subnet was explicitly associated with this route table, maintaining separation from the private subnet.
+
+This configuration establishes the public subnet's internet routing while preserving the intended network segmentation.
+
+
+## Step 9 – Create a Private Route Table
+
+![AWS Private Route Table](images/09-create-private-route-table.png)
+
+**Figure 9 – Private Route Table Creation:** I created a dedicated route table named `CloudSecurity-Private-RT` within my custom `CloudSecurity-VPC`.
+
+I verified that the route table contained only the `10.0.0.0/16 → local` route, allowing internal communication between resources within the VPC's address range.
+
+I confirmed that no default route to an internet gateway was configured, preserving the intended network isolation for private resources.
+
+This route table will provide dedicated routing for the private subnet once the subnet association is completed.
+
+
+## Step 10 – Associate the Private Subnet with Its Route Table
+
+![AWS Private Subnet Route Table Association](images/10-associate-private-subnet-route-table.png)
+
+**Figure 10 – Private Subnet Route Table Association:** I explicitly associated `CloudSecurity-Private-Subnet` with the dedicated `CloudSecurity-Private-RT` route table.
+
+I verified that the route table contained only the active `10.0.0.0/16 → local` route, supporting internal VPC communication without providing a default route to the internet gateway.
+
+I confirmed that the private subnet was the only explicitly associated subnet.
+
+This configuration establishes separate routing policies for public and private network segments, helping protect internal resources from direct internet exposure.
