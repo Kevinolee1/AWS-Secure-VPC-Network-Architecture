@@ -122,7 +122,7 @@ This route table will provide dedicated routing for the private subnet once the 
 
 ## Step 10 – Associate the Private Subnet with Its Route Table
 
-![AWS Private Subnet Route Table Association](images/10-associate-private-subnet-route-table.png)
+![AWS Private Subnet Route Table Association](https://github.com/Kevinolee1/AWS-Secure-VPC-Network-Architecture/blob/b55c557c7784d76f035f0b392162443796088a4a/Screenshot%202026-10-17%20235507.png)
 
 **Figure 10 – Private Subnet Route Table Association:** I explicitly associated `CloudSecurity-Private-Subnet` with the dedicated `CloudSecurity-Private-RT` route table.
 
