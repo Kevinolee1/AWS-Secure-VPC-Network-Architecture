@@ -57,7 +57,7 @@ This subnet is intended to host internal resources, such as databases, that requ
 
 ## Step 5 – Create and Attach an Internet Gateway
 
-![AWS Internet Gateway Configuration](images/05-create-internet-gateway.png)
+![AWS Internet Gateway Configuration](https://github.com/Kevinolee1/AWS-Secure-VPC-Network-Architecture/blob/4485d23fdb07edc45301c5a7c88dfe15004ddc15/Screenshot%202026-10-17%20231028.png)
 
 **Figure 5 – Internet Gateway Deployment:** I created an internet gateway named `CloudSecurity-IGW` and attached it to my custom `CloudSecurity-VPC` in the AWS US East (N. Virginia) region.
 
