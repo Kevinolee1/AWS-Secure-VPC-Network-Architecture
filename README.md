@@ -31,7 +31,7 @@ This VPC establishes the network foundation for implementing subnet segmentation
 
 ## Step 3 – Create a Public Subnet
 
-![AWS Public Subnet Configuration](images/03-create-public-subnet.png)
+![AWS Public Subnet Configuration](https://github.com/Kevinolee1/AWS-Secure-VPC-Network-Architecture/blob/00eafc911d8533c936d21b89dcbbdd5030cc6d54/Screenshot%202026-10-17%20225930.png)
 
 **Figure 3 – Public Subnet Deployment:** I created a subnet named `CloudSecurity-Public-Subnet` inside the `CloudSecurity-VPC` in the AWS US East (N. Virginia) region.
 
