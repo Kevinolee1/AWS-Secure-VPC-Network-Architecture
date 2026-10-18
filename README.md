@@ -44,7 +44,7 @@ This subnet will serve as the public network segment once internet gateway conne
 
 ## Step 4 – Create a Private Subnet
 
-![AWS Private Subnet Configuration](images/04-create-private-subnet.png)
+![AWS Private Subnet Configuration](https://github.com/Kevinolee1/AWS-Secure-VPC-Network-Architecture/blob/cb28de97cbf21041f3e1d12100563f38971ae912/Screenshot%202026-10-17%20230357.png)
 
 **Figure 4 – Private Subnet Deployment:** I successfully created a private subnet named `CloudSecurity-Private-Subnet` within my custom `CloudSecurity-VPC`.
 
