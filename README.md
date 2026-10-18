@@ -187,7 +187,7 @@ This review establishes the existing subnet-level network filtering configuratio
 
 ## Step 15 – Create a Dedicated Private Network ACL
 
-![AWS Private Network ACL](images/15-create-private-network-acl.png)
+![AWS Private Network ACL](https://github.com/Kevinolee1/AWS-Secure-VPC-Network-Architecture/blob/392e7070d762ee2e07c8c3b37fe2b7400b02276a/Screenshot%202026-10-18%20002609.png)
 
 **Figure 15 – Private Network ACL Creation:** I created a custom Network Access Control List named `CloudSecurity-Private-NACL` within `CloudSecurity-VPC`.
 
