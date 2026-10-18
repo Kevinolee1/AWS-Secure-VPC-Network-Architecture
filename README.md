@@ -70,7 +70,7 @@ This prepares the VPC for public subnet connectivity while allowing private subn
 
 ## Step 6 – Create a Public Route Table
 
-![AWS Public Route Table](images/06-create-public-route-table.png)
+![AWS Public Route Table](https://github.com/Kevinolee1/AWS-Secure-VPC-Network-Architecture/blob/bfbdd0617f774965677fd7fa8053214200b6584c/Screenshot%202026-10-17%20232231.png)
 
 **Figure 6 – Public Route Table Creation:** I created a custom route table named `CloudSecurity-Public-RT` within my `CloudSecurity-VPC`.
 
