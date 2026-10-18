@@ -96,7 +96,7 @@ This establishes the routing configuration required for the public subnet to sup
 
 ## Step 8 – Associate the Public Subnet with Its Route Table
 
-![Public Subnet Route Table Association](images/08-associate-public-subnet-route-table.png)
+![Public Subnet Route Table Association](https://github.com/Kevinolee1/AWS-Secure-VPC-Network-Architecture/blob/e5f3a4493daa6518de5bd610914e02fcb76a26bf/Screenshot%202026-10-17%20234338.png)
 
 **Figure 8 – Public Subnet Route Table Association:** I explicitly associated `CloudSecurity-Public-Subnet` with the custom `CloudSecurity-Public-RT` route table.
 
