@@ -237,3 +237,17 @@ The resource map confirmed that both subnets used their intended route tables an
 
 This verification demonstrates the implementation of a segmented AWS VPC network architecture with separate public and private routing configurations.
 
+
+## Step 20 – Final Private Network Security Verification
+
+![Final Private NACL Security Verification](images/20-final-private-nacl-security-verification.png)
+
+**Figure 20 – Final Private Network ACL Security Verification:** I performed a final security review of the custom `CloudSecurity-Private-NACL` associated with `CloudSecurity-Private-Subnet`.
+
+I verified that inbound rule 100 allowed PostgreSQL traffic over TCP port 5432 exclusively from the public subnet CIDR range `10.0.1.0/24`.
+
+The default deny rule remained in place to block unmatched inbound traffic.
+
+I also verified that the private subnet was associated with the intended custom Network ACL and that the outbound return-traffic rule had been configured during the previous steps.
+
+This completed the configuration review of the AWS Secure VPC & Network Architecture lab, demonstrating public/private subnet segmentation, dedicated route tables, internet gateway routing, security group restrictions, and subnet-level Network ACL controls.
