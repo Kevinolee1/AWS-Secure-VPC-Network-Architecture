@@ -188,7 +188,7 @@ This establishes an additional layer of subnet-level network security for protec
 
 ## Step 16 – Configure Private Network ACL Inbound Rules
 
-![Private NACL Inbound Rules](images/16-configure-private-nacl-inbound.png)
+![Private NACL Inbound Rules](https://github.com/Kevinolee1/AWS-Secure-VPC-Network-Architecture/blob/83e1d5bf7e54deaa28317b218662582c1458f795/Screenshot%202026-10-18%20005803.png)
 
 **Figure 16 – Private Network ACL Inbound Configuration:** I configured the inbound rules for `CloudSecurity-Private-NACL` to permit PostgreSQL traffic over TCP port 5432 from the public subnet's CIDR range, `10.0.1.0/24`.
 
@@ -198,7 +198,7 @@ This establishes subnet-level traffic filtering that complements the database se
 
 ## Step 17 – Configure Private Network ACL Outbound Rules
 
-![Private NACL Outbound Rules](https://github.com/Kevinolee1/AWS-Secure-VPC-Network-Architecture/blob/83e1d5bf7e54deaa28317b218662582c1458f795/Screenshot%202026-10-18%20005803.png)
+![Private NACL Outbound Rules](https://github.com/Kevinolee1/AWS-Secure-VPC-Network-Architecture/blob/f5d4f7472d6844d396a85a9301305bf30d87a976/Screenshot%202026-10-18%20011124.png)
 
 **Figure 17 – Private Network ACL Outbound Configuration:** I configured outbound rules for `CloudSecurity-Private-NACL` to allow TCP traffic on ephemeral ports `1024-65535` to the public subnet CIDR range `10.0.1.0/24`.
 
@@ -211,7 +211,7 @@ This configuration adds subnet-level traffic restrictions that complement the da
 
 ## Step 18 – Associate the Private Network ACL with the Private Subnet
 
-![Private Network ACL Subnet Association](https://github.com/Kevinolee1/AWS-Secure-VPC-Network-Architecture/blob/f5d4f7472d6844d396a85a9301305bf30d87a976/Screenshot%202026-10-18%20011124.png)
+![Private Network ACL Subnet Association]()
 
 **Figure 18 – Private Network ACL Subnet Association:** I associated the custom `CloudSecurity-Private-NACL` with `CloudSecurity-Private-Subnet` inside `CloudSecurity-VPC`.
 
