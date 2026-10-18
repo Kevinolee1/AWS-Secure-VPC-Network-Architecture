@@ -135,7 +135,7 @@ This configuration establishes separate routing policies for public and private 
 
 ## Step 11 – Create a Web Server Security Group
 
-![AWS Web Server Security Group](images/11-create-web-security-group.png)
+![AWS Web Server Security Group](https://github.com/Kevinolee1/AWS-Secure-VPC-Network-Architecture/blob/77e5d888c7edb0c941df9fdba0a6dfcbf86f148a/Screenshot%202026-10-18%20001030.png)
 
 **Figure 11 – Web Server Security Group Configuration:** I created a security group named `CloudSecurity-Web-SG` within my custom `CloudSecurity-VPC`.
 
