@@ -161,7 +161,7 @@ This configuration applies least-privilege network access controls to the databa
 
 ## Step 13 – Restrict Database Outbound Traffic
 
-![AWS Database Outbound Security Rules](images/13-restrict-database-outbound-traffic.png)
+![AWS Database Outbound Security Rules](https://github.com/Kevinolee1/AWS-Secure-VPC-Network-Architecture/blob/2ca3865547139cf2d479510c2cb53f47c32d594c/Screenshot%202026-10-18%20001850.png)
 
 **Figure 13 – Database Security Group Outbound Restriction:** I modified the outbound rules of `CloudSecurity-DB-SG` to remove the default unrestricted outbound traffic permission.
 
