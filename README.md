@@ -240,7 +240,7 @@ This verification demonstrates the implementation of a segmented AWS VPC network
 
 ## Step 20 – Final Private Network Security Verification
 
-![Final Private NACL Security Verification](images/20-final-private-nacl-security-verification.png)
+![Final Private NACL Security Verification](https://github.com/Kevinolee1/AWS-Secure-VPC-Network-Architecture/blob/a7bb6c355a3fb39f963457e83efebc67efbd0971/Screenshot%202026-10-18%20012047.png)
 
 **Figure 20 – Final Private Network ACL Security Verification:** I performed a final security review of the custom `CloudSecurity-Private-NACL` associated with `CloudSecurity-Private-Subnet`.
 
