@@ -223,7 +223,7 @@ The private Network ACL complements the database security group by providing an 
 
 ## Step 19 – Verify AWS VPC Network Architecture
 
-![AWS Secure VPC Architecture](images/19-verify-vpc-network-architecture.png)
+![AWS Secure VPC Architecture](https://github.com/Kevinolee1/AWS-Secure-VPC-Network-Architecture/blob/8e61b7c2c7e88f0ae9b4c1d9b1a7cc76c1165efe/Screenshot%202026-10-18%20011725.png)
 
 **Figure 19 – AWS VPC Network Architecture Verification:** I reviewed the AWS VPC resource map to validate the network architecture created throughout the lab.
 
