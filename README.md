@@ -131,3 +131,69 @@ I verified that the route table contained only the active `10.0.0.0/16 → local
 I confirmed that the private subnet was the only explicitly associated subnet.
 
 This configuration establishes separate routing policies for public and private network segments, helping protect internal resources from direct internet exposure.
+
+
+## Step 11 – Create a Web Server Security Group
+
+![AWS Web Server Security Group](images/11-create-web-security-group.png)
+
+**Figure 11 – Web Server Security Group Configuration:** I created a security group named `CloudSecurity-Web-SG` within my custom `CloudSecurity-VPC`.
+
+I configured an inbound rule allowing HTTPS traffic over TCP port 443 from `0.0.0.0/0`, preparing the security group to support secure web application access.
+
+I verified that only one inbound rule was configured and that SSH port 22 was not exposed to the public internet.
+
+This configuration follows the principle of minimizing unnecessary network exposure while allowing the traffic required for a public-facing web application.
+
+
+## Step 12 – Create a Database Security Group
+
+![AWS Database Security Group](images/12-create-database-security-group.png)
+
+**Figure 12 – Database Security Group Configuration:** I created a security group named `CloudSecurity-DB-SG` within my custom `CloudSecurity-VPC`.
+
+I configured an inbound PostgreSQL rule allowing TCP traffic on port 5432 exclusively from resources associated with `CloudSecurity-Web-SG`.
+
+I verified that the inbound rule referenced the web server security group rather than allowing unrestricted access from `0.0.0.0/0`.
+
+This configuration applies least-privilege network access controls to the database tier, restricting PostgreSQL connectivity to authorized application resources.
+
+
+## Step 13 – Restrict Database Outbound Traffic
+
+![AWS Database Outbound Security Rules](images/13-restrict-database-outbound-traffic.png)
+
+**Figure 13 – Database Security Group Outbound Restriction:** I modified the outbound rules of `CloudSecurity-DB-SG` to remove the default unrestricted outbound traffic permission.
+
+I verified that the security group contained zero outbound rules while retaining its existing inbound PostgreSQL rule.
+
+Because AWS security groups are stateful, response traffic associated with permitted inbound connections remains allowed.
+
+This configuration demonstrates restrictive outbound access controls and reduces unnecessary network permissions for the database tier.
+
+
+## Step 14 – Review Default Network ACL Rules
+
+![AWS Default Network ACL Review](images/14-review-network-acl-rules.png)
+
+**Figure 14 – Default Network ACL Security Review:** I examined the default Network Access Control List (NACL) associated with `CloudSecurity-VPC`.
+
+I verified that the Network ACL was associated with two subnets and reviewed its outbound traffic rules.
+
+The configuration included rule 100, allowing all outbound traffic, followed by the default deny rule for unmatched traffic.
+
+This review establishes the existing subnet-level network filtering configuration before implementing more restrictive Network ACL policies.
+
+
+## Step 15 – Create a Dedicated Private Network ACL
+
+![AWS Private Network ACL](images/15-create-private-network-acl.png)
+
+**Figure 15 – Private Network ACL Creation:** I created a custom Network Access Control List named `CloudSecurity-Private-NACL` within `CloudSecurity-VPC`.
+
+I verified that the newly created NACL contained the default inbound deny rule, blocking traffic unless explicitly permitted by additional rules.
+
+I also confirmed that the NACL was not yet associated with any subnet, allowing me to configure its security rules before applying them to the private network segment.
+
+This establishes an additional layer of subnet-level network security for protecting internal AWS resources.
+
