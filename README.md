@@ -1,5 +1,5 @@
 # AWS-Secure-VPC-Network-Architecture
-Hands-on AWS cloud networking project focused on designing and building a secure Virtual Private Cloud (VPC) from scratch, including public and private subnets, route tables, internet gateways, security groups, network ACLs, and network isolation using AWS security best practices.
+Hands on AWS cloud networking project focused on designing and building a secure Virtual Private Cloud (VPC) from scratch, including public and private subnets, route tables, internet gateways, security groups, network ACLs, and network isolation using AWS security best practices.
 
 
 
@@ -9,7 +9,7 @@ Hands-on AWS cloud networking project focused on designing and building a secure
 
 **Figure 1 – AWS IAM Administrator Security Configuration:** I created and configured the `cloud-lab-admin` IAM user to manage AWS infrastructure without routinely using the root account.
 
-I attached the AWS-managed `AdministratorAccess` policy and configured passkey-based multi-factor authentication (MFA) using Windows Hello.
+I attached the AWS managed `AdministratorAccess` policy and configured passkey-based multi-factor authentication (MFA) using Windows Hello.
 
 I verified that console access displayed **Enabled with MFA** and confirmed that the administrator policy was successfully attached.
 
