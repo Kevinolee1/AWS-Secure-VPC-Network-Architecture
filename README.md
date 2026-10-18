@@ -211,7 +211,7 @@ This configuration adds subnet-level traffic restrictions that complement the da
 
 ## Step 18 – Associate the Private Network ACL with the Private Subnet
 
-![Private Network ACL Subnet Association](images/18-associate-private-network-acl.png)
+![Private Network ACL Subnet Association](https://github.com/Kevinolee1/AWS-Secure-VPC-Network-Architecture/blob/f5d4f7472d6844d396a85a9301305bf30d87a976/Screenshot%202026-10-18%20011124.png)
 
 **Figure 18 – Private Network ACL Subnet Association:** I associated the custom `CloudSecurity-Private-NACL` with `CloudSecurity-Private-Subnet` inside `CloudSecurity-VPC`.
 
