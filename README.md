@@ -18,7 +18,7 @@ This establishes a dedicated, MFA-protected administrative identity for building
 
 ## Step 2 – Create a Custom AWS Virtual Private Cloud
 
-![Custom AWS VPC Configuration](images/02-create-custom-vpc.png)
+![Custom AWS VPC Configuration](https://github.com/Kevinolee1/AWS-Secure-VPC-Network-Architecture/blob/f1e2aeda8a168a50af5af6df8e1690d218ef576d/Screenshot%202026-10-17%20225130.png)
 
 **Figure 2 – Custom AWS VPC Deployment:** I successfully created a custom Virtual Private Cloud named `CloudSecurity-VPC` using the AWS VPC console.
 
