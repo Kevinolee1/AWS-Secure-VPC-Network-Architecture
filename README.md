@@ -174,7 +174,7 @@ This configuration demonstrates restrictive outbound access controls and reduces
 
 ## Step 14 – Review Default Network ACL Rules
 
-![AWS Default Network ACL Review](images/14-review-network-acl-rules.png)
+![AWS Default Network ACL Review](https://github.com/Kevinolee1/AWS-Secure-VPC-Network-Architecture/blob/a685a9a7834af8c9995796c4839d601edfb5118d/Screenshot%202026-10-18%20002245.png)
 
 **Figure 14 – Default Network ACL Security Review:** I examined the default Network Access Control List (NACL) associated with `CloudSecurity-VPC`.
 
