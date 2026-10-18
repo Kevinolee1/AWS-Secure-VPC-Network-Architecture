@@ -198,7 +198,7 @@ This establishes subnet-level traffic filtering that complements the database se
 
 ## Step 17 – Configure Private Network ACL Outbound Rules
 
-![Private NACL Outbound Rules](images/17-configure-private-nacl-outbound.png)
+![Private NACL Outbound Rules](https://github.com/Kevinolee1/AWS-Secure-VPC-Network-Architecture/blob/83e1d5bf7e54deaa28317b218662582c1458f795/Screenshot%202026-10-18%20005803.png)
 
 **Figure 17 – Private Network ACL Outbound Configuration:** I configured outbound rules for `CloudSecurity-Private-NACL` to allow TCP traffic on ephemeral ports `1024-65535` to the public subnet CIDR range `10.0.1.0/24`.
 
