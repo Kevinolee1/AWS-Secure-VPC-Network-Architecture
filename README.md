@@ -83,7 +83,7 @@ This establishes the foundation for configuring controlled internet routing for 
 
 ## Step 7 – Configure Public Internet Routing
 
-![AWS Public Internet Route Configuration](images/07-configure-public-internet-route.png)
+![AWS Public Internet Route Configuration](https://github.com/Kevinolee1/AWS-Secure-VPC-Network-Architecture/blob/b2387dce04a78f827b59b9ab6e08fabe8b0cf82a/Screenshot%202026-10-17%20233423.png)
 
 **Figure 7 – Public Route Table Internet Gateway Configuration:** I configured the `CloudSecurity-Public-RT` route table to direct outbound IPv4 traffic toward the `CloudSecurity-IGW` internet gateway.
 
