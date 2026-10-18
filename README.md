@@ -148,7 +148,7 @@ This configuration follows the principle of minimizing unnecessary network expos
 
 ## Step 12 – Create a Database Security Group
 
-![AWS Database Security Group](images/12-create-database-security-group.png)
+![AWS Database Security Group](https://github.com/Kevinolee1/AWS-Secure-VPC-Network-Architecture/blob/b60e5f380edd4e61cd6e28dbc947d228fabd464f/Screenshot%202026-10-18%20001643.png)
 
 **Figure 12 – Database Security Group Configuration:** I created a security group named `CloudSecurity-DB-SG` within my custom `CloudSecurity-VPC`.
 
