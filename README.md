@@ -1,8 +1,6 @@
 # AWS-Secure-VPC-Network-Architecture
 Hands on AWS cloud networking project focused on designing and building a secure Virtual Private Cloud (VPC) from scratch, including public and private subnets, route tables, internet gateways, security groups, network ACLs, and network isolation using AWS security best practices.
 
-
-
 ## Step 1 – Configure Secure AWS Administrator Access
 
 ![Secure AWS Administrator Configuration](https://github.com/Kevinolee1/AWS-Secure-VPC-Network-Architecture/blob/0a2e6f590d69304b203b3b3d45e91041b0fce5d2/Screenshot%202026-10-17%20222618.png)
@@ -14,7 +12,6 @@ I attached the AWS managed `AdministratorAccess` policy and configured passkey-b
 I verified that console access displayed **Enabled with MFA** and confirmed that the administrator policy was successfully attached.
 
 This establishes a dedicated, MFA-protected administrative identity for building and securing the AWS network architecture.
-
 
 ## Step 2 – Create a Custom AWS Virtual Private Cloud
 
@@ -28,7 +25,6 @@ I verified that the VPC entered the **Available** state, DNS resolution was enab
 
 This VPC establishes the network foundation for implementing subnet segmentation, routing controls, and secure communication between AWS resources.
 
-
 ## Step 3 – Create a Public Subnet
 
 ![AWS Public Subnet Configuration](https://github.com/Kevinolee1/AWS-Secure-VPC-Network-Architecture/blob/00eafc911d8533c936d21b89dcbbdd5030cc6d54/Screenshot%202026-10-17%20225930.png)
@@ -40,7 +36,6 @@ I assigned the subnet the IPv4 CIDR block `10.0.1.0/24` and deployed it in Avail
 I verified that the subnet entered the **Available** state with 251 usable IPv4 addresses available for AWS resources.
 
 This subnet will serve as the public network segment once internet gateway connectivity and public routing are configured in subsequent steps.
-
 
 ## Step 4 – Create a Private Subnet
 
@@ -54,7 +49,6 @@ I verified that the subnet entered the **Available** state and was associated wi
 
 This subnet is intended to host internal resources, such as databases, that require restricted network access. Internet isolation will be enforced through route table configuration and additional network security controls in subsequent steps.
 
-
 ## Step 5 – Create and Attach an Internet Gateway
 
 ![AWS Internet Gateway Configuration](https://github.com/Kevinolee1/AWS-Secure-VPC-Network-Architecture/blob/4485d23fdb07edc45301c5a7c88dfe15004ddc15/Screenshot%202026-10-17%20231028.png)
@@ -66,7 +60,6 @@ I verified that the internet gateway entered the **Attached** state and was asso
 The internet gateway provides a path for internet connectivity when resources are configured with appropriate route tables, IP addressing, and security controls.
 
 This prepares the VPC for public subnet connectivity while allowing private subnets to remain isolated from direct internet access.
-
 
 ## Step 6 – Create a Public Route Table
 
@@ -132,7 +125,6 @@ I confirmed that the private subnet was the only explicitly associated subnet.
 
 This configuration establishes separate routing policies for public and private network segments, helping protect internal resources from direct internet exposure.
 
-
 ## Step 11 – Create a Web Server Security Group
 
 ![AWS Web Server Security Group](https://github.com/Kevinolee1/AWS-Secure-VPC-Network-Architecture/blob/77e5d888c7edb0c941df9fdba0a6dfcbf86f148a/Screenshot%202026-10-18%20001030.png)
@@ -144,7 +136,6 @@ I configured an inbound rule allowing HTTPS traffic over TCP port 443 from `0.0.
 I verified that only one inbound rule was configured and that SSH port 22 was not exposed to the public internet.
 
 This configuration follows the principle of minimizing unnecessary network exposure while allowing the traffic required for a public-facing web application.
-
 
 ## Step 12 – Create a Database Security Group
 
@@ -171,7 +162,6 @@ Because AWS security groups are stateful, response traffic associated with permi
 
 This configuration demonstrates restrictive outbound access controls and reduces unnecessary network permissions for the database tier.
 
-
 ## Step 14 – Review Default Network ACL Rules
 
 ![AWS Default Network ACL Review](https://github.com/Kevinolee1/AWS-Secure-VPC-Network-Architecture/blob/a685a9a7834af8c9995796c4839d601edfb5118d/Screenshot%202026-10-18%20002245.png)
@@ -184,7 +174,6 @@ The configuration included rule 100, allowing all outbound traffic, followed by 
 
 This review establishes the existing subnet-level network filtering configuration before implementing more restrictive Network ACL policies.
 
-
 ## Step 15 – Create a Dedicated Private Network ACL
 
 ![AWS Private Network ACL](https://github.com/Kevinolee1/AWS-Secure-VPC-Network-Architecture/blob/392e7070d762ee2e07c8c3b37fe2b7400b02276a/Screenshot%202026-10-18%20002609.png)
@@ -196,4 +185,55 @@ I verified that the newly created NACL contained the default inbound deny rule, 
 I also confirmed that the NACL was not yet associated with any subnet, allowing me to configure its security rules before applying them to the private network segment.
 
 This establishes an additional layer of subnet-level network security for protecting internal AWS resources.
+
+## Step 16 – Configure Private Network ACL Inbound Rules
+
+![Private NACL Inbound Rules](images/16-configure-private-nacl-inbound.png)
+
+**Figure 16 – Private Network ACL Inbound Configuration:** I configured the inbound rules for `CloudSecurity-Private-NACL` to permit PostgreSQL traffic over TCP port 5432 from the public subnet's CIDR range, `10.0.1.0/24`.
+
+I added rule 100 to allow the required database traffic while retaining the default deny rule for unmatched inbound traffic.
+
+This establishes subnet-level traffic filtering that complements the database security group's more restrictive source-based permissions.
+
+## Step 17 – Configure Private Network ACL Outbound Rules
+
+![Private NACL Outbound Rules](images/17-configure-private-nacl-outbound.png)
+
+**Figure 17 – Private Network ACL Outbound Configuration:** I configured outbound rules for `CloudSecurity-Private-NACL` to allow TCP traffic on ephemeral ports `1024-65535` to the public subnet CIDR range `10.0.1.0/24`.
+
+I verified that rule 100 permitted the required return traffic while the default deny rule blocked unmatched outbound traffic.
+
+Because Network ACLs are stateless, explicitly allowing outbound response traffic is necessary for PostgreSQL connections initiated by authorized application resources.
+
+This configuration adds subnet-level traffic restrictions that complement the database security group's least-privilege permissions.
+
+
+## Step 18 – Associate the Private Network ACL with the Private Subnet
+
+![Private Network ACL Subnet Association](images/18-associate-private-network-acl.png)
+
+**Figure 18 – Private Network ACL Subnet Association:** I associated the custom `CloudSecurity-Private-NACL` with `CloudSecurity-Private-Subnet` inside `CloudSecurity-VPC`.
+
+I verified that the private subnet was associated with the custom Network ACL while the public subnet remained associated with the VPC's default Network ACL.
+
+This establishes separate subnet-level traffic filtering for the public and private network segments.
+
+The private Network ACL complements the database security group by providing an additional layer of network access control.
+
+## Step 19 – Verify AWS VPC Network Architecture
+
+![AWS Secure VPC Architecture](images/19-verify-vpc-network-architecture.png)
+
+**Figure 19 – AWS VPC Network Architecture Verification:** I reviewed the AWS VPC resource map to validate the network architecture created throughout the lab.
+
+I verified that `CloudSecurity-VPC` used the `10.0.0.0/16` IPv4 CIDR block and contained two subnets: `CloudSecurity-Public-Subnet` and `CloudSecurity-Private-Subnet`.
+
+The public subnet was associated with `CloudSecurity-Public-RT`, which provided a route to `CloudSecurity-IGW`.
+
+The private subnet was associated with `CloudSecurity-Private-RT`, which maintained internal VPC routing without a default internet gateway route.
+
+The resource map confirmed that both subnets used their intended route tables and that the internet gateway was connected to the public routing path.
+
+This verification demonstrates the implementation of a segmented AWS VPC network architecture with separate public and private routing configurations.
 
