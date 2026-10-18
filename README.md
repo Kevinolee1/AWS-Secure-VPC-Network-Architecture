@@ -109,7 +109,7 @@ This configuration establishes the public subnet's internet routing while preser
 
 ## Step 9 – Create a Private Route Table
 
-![AWS Private Route Table](images/09-create-private-route-table.png)
+![AWS Private Route Table](https://github.com/Kevinolee1/AWS-Secure-VPC-Network-Architecture/blob/de62eec258c4c813854a6d668c50ccfac09ffa14/Screenshot%202026-10-17%20235239.png)
 
 **Figure 9 – Private Route Table Creation:** I created a dedicated route table named `CloudSecurity-Private-RT` within my custom `CloudSecurity-VPC`.
 
