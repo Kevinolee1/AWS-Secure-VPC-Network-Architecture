@@ -5,7 +5,7 @@ Hands on AWS cloud networking project focused on designing and building a secure
 
 ## Step 1 – Configure Secure AWS Administrator Access
 
-![Secure AWS Administrator Configuration](images/01-configure-secure-admin-access.png)
+![Secure AWS Administrator Configuration](https://github.com/Kevinolee1/AWS-Secure-VPC-Network-Architecture/blob/0a2e6f590d69304b203b3b3d45e91041b0fce5d2/Screenshot%202026-10-17%20222618.png)
 
 **Figure 1 – AWS IAM Administrator Security Configuration:** I created and configured the `cloud-lab-admin` IAM user to manage AWS infrastructure without routinely using the root account.
 
